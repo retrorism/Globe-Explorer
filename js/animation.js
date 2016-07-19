@@ -22,8 +22,6 @@ $('#data_wrap').on("mouseover",".data_block",function(){
    hideMenu();
 });
 
-
-
 $('#data_block_1').on("click",".close_block",function(){
    hideMenu();
    var id = $(this).attr("id");
@@ -53,7 +51,6 @@ $('#data_block_2').on("click",".close_block",function(){
    $('#data_wrap').removeClass("data_wrap_two");
    globe.erasePoint(datasheet[cutid].id);
 });
-
 
 $('.country_wrap').on("click",".positions",function(){
   var id = parseInt($(this).attr("id"));
@@ -129,62 +126,8 @@ function hideMenu(){
   menu_open=0;
 }
 
-
-$('.hamburger-menu').on('click', function() {
-  if (menu_open==0){
-    openMenu();
-  }
-  else{
-    hideMenu();
-  }
-});
-
-
-$('#nav_share').click(function(){
-  var actualLink =window.location.href;
-  var actualLink_cut = actualLink.substr(0,actualLink.indexOf('?'));
-  if(actualLink_cut){
-    var generatedLink = actualLink_cut + "?" + spreadsheetID + "scale=" + scale_sheet;
-  }
-  else{
-    var generatedLink = window.location.href + "?" + spreadsheetID + "scale=" + scale_sheet;
-  }
-  $('.share_link').val(generatedLink);
-  $('#share_page').fadeIn(200);
-  hideMenu();
-  if(first_open == 0){
-    first_open = 1;
-    $('.share_links').prepend('<li><a class="share_twitter" href="javascript:void(0); "NAME="Globe Explorer" title="Share your globe" onClick=window.open("https://twitter.com/intent/tweet?text=My%20datavisualition%20on%20Globe%20Explorer%20:'+generatedLink+'","Ratting","width=550,height=300,0,status=0,");> <div class="share_twitter_icon"></div></a></li>');
-  }
-})
-
-$('#nav_new').click(function(){
-  var actualLink =window.location.href;
-  var actualLink_cut = actualLink.substr(0,actualLink.indexOf('?'));
-  if(actualLink_cut){
-    window.location.replace(actualLink_cut);
-  }
-  else{
-   window.location.replace(actualLink);
-  }
-})
-
 $('.page_background').click(function(){
   $('#about_page').fadeOut(200);
   $('#share_page').fadeOut(200);
-  $('#accessShare_page').fadeOut(200);
-})
-
-$('#nav_about').click(function(){
-  $('#about_page').fadeIn(200);
-  hideMenu();
-})
-
-
-$('.share_close').click(function(){
-  $('#share_page').fadeOut(200);
-})
-
-$('.accessShare_button').click(function(){
   $('#accessShare_page').fadeOut(200);
 })
